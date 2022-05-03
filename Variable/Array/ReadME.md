@@ -130,7 +130,7 @@ arr.splice();
 
 ```javascript
 var avengers=['spiderman', 'ironman', 'hulk', 'thor'];
-avengers.splice(1, 1) //avengers배열에서 첫번째원소에서 하나만 삭제하겠다!
+avengers.splice(1, 1) //avengers배열에서 첫번째원소에서 하나만 삭제하겠다!(배열 인덱스는 0부터 세는 것에 주의)
 ```
 > 결과값: ['ironman'] 삭제 <br>
 > -> spiderman, hulk, thor 만 배열에 남아 있다.
