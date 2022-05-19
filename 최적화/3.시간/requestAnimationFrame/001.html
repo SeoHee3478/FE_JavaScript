@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            margin: 100px;
+        }
+
+        .container {
+            width: 100px;
+            height: 100px;
+            background-color: slateblue;
+            transition: 0.3s linear;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container"></div>
+    <script>
+        const container = document.querySelector('.container');
+        let pos = 0; //target이 얼마나 움직일지 관련 정보가 저장되는 변수
+        let keys = {};
+
+        function move(event) {
+            keys[event.key] = true;
+            console.log(keys)
+        }
+
+        function stop(event) {
+            keys[event.key] = false;
+            console.log(keys)
+        }
+
+        document.addEventListener('keydown', move);
+        document.addEventListener('keyup', stop);
+
+        function play() {
+            //console.log('play!');   
+            if (keys.ArrowRight) {
+                pos = pos + 5;
+                container.style.transform = `translateX(${pos}px)`
+            }
+            if (keys.ArrowLeft) {
+                pos = pos - 5;
+                container.style.transform = `translateX(${pos}px)`
+            }
+            if (keys.ArrowUp) {
+                pos = pos - 5;
+                container.style.transform = `translateY(${pos}px)`
+            }
+            if (keys.ArrowDown) {
+                pos = pos + 5;
+                container.style.transform = `translateY(${pos}px)`
+            }
+            window.requestAnimationFrame(play); //재귀
+        }
+        window.requestAnimationFrame(play);
+
+      
+    </script>
+</body>
+
+</html>
